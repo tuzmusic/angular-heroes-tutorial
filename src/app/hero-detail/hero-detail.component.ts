@@ -9,6 +9,7 @@ import { Hero } from "../hero";
 export class HeroDetailComponent implements OnInit {
   // allow hero property to be passed in
   // (i.e., declaring "props")
+
   @Input() hero: Hero;
 
   constructor() {}
