@@ -1,5 +1,8 @@
+# Binding and "props"
+
 - "props" are passed through _property binding_: `[hero]="selectedHero"`
 - The "props" must each be declared in the component, as a property on the class, tagged with `@Input` decorator: `@Input() hero: Hero;`
+- Angular only binds to _public_ component properties
 
 # Services
 
