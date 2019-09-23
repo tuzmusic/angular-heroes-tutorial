@@ -26,15 +26,19 @@
 
 # Dependency Injection
 
-- `@Input() hero: Hero;` - class property (in `HeroDetailComponent`)
+- Components: the html selectors of components are made available in all templates when the root `AppModule` lists them in its `declarations`.
+- Module directives: html selectors from modules (aka directives) are made available in all templates when the root `AppModule` lists them in its `imports`.
+- Models/props: `@Input() hero: Hero;` - class property (in `HeroDetailComponent`)
 - Modules (classes) must be declared in `app.module.ts` in `@NgModule` declarations
-- Injecting and declaring services: [https://angular.io/tutorial/toh-pt4#provide-the-heroservice]
+- (at least for a module) you don't just export the class (JS) you also need to export it in the `@NgModule` annotation (NG)
+- Injecting and declaring services:
+  - [https://angular.io/tutorial/toh-pt4#provide-the-heroservice]
   - You _register a provider_ to make a service available to the DI system
   - You must make the `HeroService` available to the dependency injection system before Angular can _inject_ it into the `HeroesComponent` by registering a _provider_. A provider is something that can create or deliver a service; in this case, it instantiates the `HeroService` class to provide the service.
   - Providing at the root level creates a singleton for the whole app
-- Inject the service into a component by defining a parameter for the service in the component's class constructor:
-  > When Angular creates a `HeroesComponent`, the Dependency Injection system sets the `heroService` parameter to the singleton instance of `HeroService`.
-  - In my words, when the app constructs the component instance, it passes the service as the parameter in the constructor and makes it available to the component (it must be saying `this.heroService = heroService` )
+  - Inject the service into a component by defining a parameter for the service in the component's class constructor:
+    > When Angular creates a `HeroesComponent`, the Dependency Injection system sets the `heroService` parameter to the singleton instance of `HeroService`.
+    - In my words, when the app constructs the component instance, it passes the service as the parameter in the constructor and makes it available to the component (it must be saying `this.heroService = heroService` )
 
 # Decorators
 
